@@ -13,35 +13,36 @@ public class Menu {
 
     public Player[] start() {
 
-        // Beginning state of game
-        boolean userWantsToQuit = false;
-
-        // Checks if there is a winner affecting state of the game
-        Gameplay gameplay = new Gameplay();
-        boolean status = Gameplay.gameStatus();
+//        // Beginning state of game
+//        boolean userWantsToQuit = false;
+//
+//        // Checks if there is a winner affecting state of the game
+//        Gameplay gameplay = new Gameplay();
+//        boolean status = Gameplay.gameStatus();
         int playerSelection = -1;
-        int menuSelection = -1;
+//        int menuSelection = -1;
         Player[] allPlayers = {};
-
-
-        while (!status && !userWantsToQuit) {
-            System.out.println("\nMenu\n");
-            startingMenu();
-            // prevents the program from crashing when non-integer entered
-            try {
-                Scanner console = new Scanner(System.in);
-                menuSelection = console.nextInt();
-            } catch (InputMismatchException e) {
-                errorMessage();
-                continue;
-            }
-
-            if (menuSelection == 1) {
+//
+//
+//        while (!status && !userWantsToQuit) {
+//            System.out.println("\nMenu\n");
+//            startingMenu();
+//            // prevents the program from crashing when non-integer entered
+//            try {
+//                Scanner console = new Scanner(System.in);
+//                menuSelection = console.nextInt();
+//            } catch (InputMismatchException e) {
+//                errorMessage();
+//                continue;
+//            }
+//
+//            if (menuSelection == 1) {
                 setUPPlayer1();
-            } else {
-                userWantsToQuit = confirmExit();
-
-            }
+//            } else if (confirmExit() == true) {
+//                System.exit(0);
+//            } else {
+//            userWantsToQuit = confirmExit();
+//        }
 
             // prevents the program from crashing when non-integer entered
             try {
@@ -49,7 +50,7 @@ public class Menu {
                 playerSelection = console.nextInt();
             } catch (InputMismatchException e) {
                 errorMessage();
-                continue;
+//                continue;
             }
 
             // Player 1 is human
@@ -69,7 +70,7 @@ public class Menu {
                         playerSelection2 = console2.nextInt();
                     } catch (InputMismatchException e) {
                         errorMessage();
-                        continue;
+//                        continue;
                     }
 
                     // Player 2 is random
@@ -80,10 +81,6 @@ public class Menu {
                         System.out.println("Player 2 is called " + player2.getName() + "\n");
                         allPlayers = new Player[]{player1, player2};
 
-
-//                        Gomoku gomoku = new Gomoku(player1, player2);
-//                        System.out.println("(Randomizing)\n\n" + gomoku.getCurrent().getName() + " goes first.");
-
                         // Player 2 is also human
                     } else if (playerSelection2 == 1) {
                         String playerType3 = "human";
@@ -91,9 +88,6 @@ public class Menu {
                         Player player3 = getPlayer(playerType3);
                         System.out.println("Player 2 is called " + player3.getName() + "\n");
                         allPlayers = new Player[]{player1, player3};
-
-//                        Gomoku gomoku = new Gomoku(player1, player3);
-//                        System.out.println("(Randomizing)\n\n" + gomoku.getCurrent().getName()  + " goes first.");
 
                     } else {
                         System.out.println("Please select option 1 or 2.");
@@ -116,7 +110,7 @@ public class Menu {
                         playerSelection3 = console5.nextInt();;
                     } catch (InputMismatchException e) {
                         errorMessage();
-                        continue;
+//                        continue;
                     }
 
                     // Player 2 is also random
@@ -127,9 +121,6 @@ public class Menu {
                         System.out.println("Player 2 is called " + player5.getName() + "\n");
                         allPlayers = new Player[]{player4, player5};
 
-//                        Gomoku gomoku = new Gomoku(player4, player5);
-//                        System.out.println("(Randomizing)\n\n" + gomoku.getCurrent().getName() + " goes first.");
-
                         // Player 2 is human
                     } else if (playerSelection3 == 1) {
                         String playerType6 = "human";
@@ -137,9 +128,6 @@ public class Menu {
                         Player player6 = getPlayer(playerType6);
                         System.out.println("Player 2 is called " + player6.getName() + "\n");
                         allPlayers = new Player[]{player4, player6};
-
-//                        Gomoku gomoku = new Gomoku(player4, player6);
-//                        System.out.println("(Randomizing)\n\n" + gomoku.getCurrent().getName() + " goes first.");
 
                     } else {
                         System.out.println("Please select option 1 or 2.");
@@ -151,10 +139,8 @@ public class Menu {
                     System.out.println("Invalid option, please select a valid option.");
                     break;
             }
-
-        }
         return allPlayers;
-    }
+        }
 
     public Player getPlayer(String playerType) {
         if (playerType == "human") {
@@ -205,5 +191,5 @@ public class Menu {
             return false;
         }
     }
-
 }
+
