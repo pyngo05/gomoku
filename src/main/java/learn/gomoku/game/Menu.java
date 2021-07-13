@@ -13,36 +13,12 @@ public class Menu {
 
     public Player[] start() {
 
-//        // Beginning state of game
-//        boolean userWantsToQuit = false;
-//
-//        // Checks if there is a winner affecting state of the game
-//        Gameplay gameplay = new Gameplay();
-//        boolean status = Gameplay.gameStatus();
+        // starting menu state
         int playerSelection = -1;
-//        int menuSelection = -1;
+
+        // empty array to return final 2 players
         Player[] allPlayers = {};
-//
-//
-//        while (!status && !userWantsToQuit) {
-//            System.out.println("\nMenu\n");
-//            startingMenu();
-//            // prevents the program from crashing when non-integer entered
-//            try {
-//                Scanner console = new Scanner(System.in);
-//                menuSelection = console.nextInt();
-//            } catch (InputMismatchException e) {
-//                errorMessage();
-//                continue;
-//            }
-//
-//            if (menuSelection == 1) {
-                setUPPlayer1();
-//            } else if (confirmExit() == true) {
-//                System.exit(0);
-//            } else {
-//            userWantsToQuit = confirmExit();
-//        }
+        setUPPlayer1();
 
             // prevents the program from crashing when non-integer entered
             try {
@@ -59,9 +35,11 @@ public class Menu {
                     String playerType = "human";
                     System.out.print("Player 1, enter your name: ");
                     Player player1 = getPlayer(playerType);
+                    // to confirm the correct player is returned with name
                     System.out.println("Player 1 is called " + player1.getName() + "\n");
 
                     setUPPlayer2();
+                    // second player selection state
                     int playerSelection2 = -1;
 
                     // prevents the program from crashing when non-integer entered
@@ -78,7 +56,9 @@ public class Menu {
                         String playerType2 = "random";
                         Player player2 = getPlayer(playerType2);
                         System.out.print("Player 2, enter your name: " + player2.getName()+ "\n");
+                        // to confirm the correct player is returned with name
                         System.out.println("Player 2 is called " + player2.getName() + "\n");
+                        // add both players to array
                         allPlayers = new Player[]{player1, player2};
 
                         // Player 2 is also human
@@ -86,7 +66,9 @@ public class Menu {
                         String playerType3 = "human";
                         System.out.print("Player 2, enter your name: ");
                         Player player3 = getPlayer(playerType3);
+                        // to confirm the correct player is returned with name
                         System.out.println("Player 2 is called " + player3.getName() + "\n");
+                        // add both players to array
                         allPlayers = new Player[]{player1, player3};
 
                     } else {
@@ -98,10 +80,13 @@ public class Menu {
                 case 2:
                     String playerType4 = "random";
                     Player player4 = getPlayer(playerType4);
+                    // to confirm the correct player is returned with name
                     System.out.print("Player 1, enter your name: " + player4.getName()+ "\n");
+                    // add both players to array
                     System.out.println("Player 1 is called " + player4.getName() + "\n");
 
                     setUPPlayer2();
+                    // second player selection state
                     int playerSelection3 = -1;
 
                     // prevents the program from crashing when non-integer entered
@@ -110,7 +95,6 @@ public class Menu {
                         playerSelection3 = console5.nextInt();;
                     } catch (InputMismatchException e) {
                         errorMessage();
-//                        continue;
                     }
 
                     // Player 2 is also random
@@ -118,7 +102,9 @@ public class Menu {
                         String playerType5 = "random";
                         Player player5 = getPlayer(playerType5);
                         System.out.print("Player 2, enter your name: " + player5.getName()+ "\n");
+                        // to confirm the correct player is returned with name
                         System.out.println("Player 2 is called " + player5.getName() + "\n");
+                        // add both players to array
                         allPlayers = new Player[]{player4, player5};
 
                         // Player 2 is human
@@ -126,7 +112,9 @@ public class Menu {
                         String playerType6 = "human";
                         System.out.print("Player 2, enter your name: ");
                         Player player6 = getPlayer(playerType6);
+                        // to confirm the correct player is returned with name
                         System.out.println("Player 2 is called " + player6.getName() + "\n");
+                        // add both players to array
                         allPlayers = new Player[]{player4, player6};
 
                     } else {
@@ -155,9 +143,7 @@ public class Menu {
         return (learn.gomoku.players.Player) Player;
     }
 
-    public void startingMenu() {
-        System.out.print("1. Game Set Up\n2. Quit Game\nSelect [1-2]: ");
-    }
+
 
     public void setUPPlayer1() {
         System.out.print("\nPlayer 1 is:\n1. Human\n2. Random Player\nSelect [1-2]: ");
@@ -171,25 +157,5 @@ public class Menu {
         System.out.print("Invalid option, please enter a valid option.\n");
     }
 
-    // Returns true if user confirmed that they want to exit.
-    public boolean confirmExit() {
-        Scanner console7 = new Scanner(in);
-        String choice = "";
-        System.out.print("\nExit\n" +
-                "~~~~~~~~~~~~~~~~~~~~\n" +
-                "Are you sure you want to exit?\n" +
-                "Exit [y/n]: ");
-        choice = console7.next();
-        if (choice.equalsIgnoreCase("y")) {
-            System.out.println("\nGoodbye!");
-            return true;
-        } else if (choice.equalsIgnoreCase("n")) {
-            System.out.println("Returning to main menu.");
-            return false;
-        } else {
-            System.out.println("Invalid option, returning to main menu.");
-            return false;
-        }
-    }
 }
 
