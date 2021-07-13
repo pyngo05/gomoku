@@ -28,6 +28,7 @@ public class Gameplay {
         // populate board with previous moves
         for (int i = 0; i < previousMoves.size(); i++) {
             Stone move = previousMoves.get(i);
+            // plus 1 to stop stone touching edge of board
             gameBoard[move.getRow()+1][move.getColumn()+1] = move.isBlack() ? "  B" : "  W";
         }
 
